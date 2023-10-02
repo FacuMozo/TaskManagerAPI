@@ -42,7 +42,18 @@ app.use("/api/users", userRoute); //✅
 app.use("/api/login", loginRoute.login); //✅
 
 app.get('/', (req, res) => {
-  res.send('Express JS on Vercel')
+  const htmlResponse = 
+    `<hmtl>
+      <head>
+        <title> Node y Express server in Vercel</title>
+      </head>
+      <body>
+        <h1>Node y Express server in Vercel</h1>
+        <h2> AgileFlow BackEnd Server by Facundo Mozo</h2>
+      </body>
+    </hmtl>`
+  ;
+  res.send(htmlResponse)
 })
 
 app.get('/ping', (req, res) => {
