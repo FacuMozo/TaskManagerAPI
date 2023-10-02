@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <h1>Node y Express server in Vercel</h1>
-        <h2> AgileFlow BackEnd Server by Facundo Mozo</h2>
+        <h2> AgileFlow BackEnd Server by Facundo Mozo </h2>
       </body>
     </hmtl>`
   ;
