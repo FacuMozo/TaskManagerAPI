@@ -22,11 +22,11 @@ const loginRoute = require("./routes/auth");
 
 //middleware
 app.use(cors(
-  {
-    origin:["https://task-manager-api-nu.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-  }
+  // {
+  //   origin:["https://agileflow-frontend.vercel.app"],
+  //   methods: ["POST", "GET","PUT","DELETE"],
+  //   credentials: true
+  // }
 ));
 
 app.use(express.urlencoded({ extended: true }));
