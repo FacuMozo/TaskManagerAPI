@@ -23,7 +23,7 @@ const loginRoute = require("./routes/auth");
 //middleware
 app.use(cors(
   {
-    origin:["task-manager-api-kappa.vercel.app"],
+    origin:["https://task-manager-api-nu.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
   }
