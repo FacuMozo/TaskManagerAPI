@@ -1,0 +1,39 @@
+nav{
+  mat-toolbar{
+    color: var(--textColor);
+    background-color: var(--elementBackgroundColor);
+    span{
+      font-weight: 500;
+    }
+    mat-icon{
+      vertical-align: super;
+    }
+    @media (prefers-color-scheme: light) {
+      button:hover{
+        background-color: var(--darkColor);
+        mat-icon{
+          transition: all 0.2s linear;
+          transform: scale(1.2);
+          color: white; 
+        }
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      button:hover{
+        background-color: var(--lightColorStrong);
+        mat-icon{
+          transition: all 0.2s linear;
+          transform: scale(1.2);
+          color: black; 
+        }
+      }
+      
+    }
+  }
+
+
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }

@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+
+body,html {
+    min-height: 100%;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-typography{
+  background-color: var(--backgroundcolor);
+}
+
+label,h1,h2,h3,a,input,p, mat-card-title {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    word-break: break-all;
+}
+:root {
+    font-size: 16px;
+    --darkColor: #004242;
+    --darkColorSoft: #3d6f6f;
+    --mediumColor: #7b9b9b;
+    --lightColorStrong:#b8c8c8;
+    --lightColor: #e1e6e6;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+
+
+
+
+@media (prefers-color-scheme: light) {
+    :root { 
+      --backgroundcolor : var(--lightColor);
+      --iconColor :var(--darkColor);
+      --textColor : var(--darkColor);
+      --borderColor : var(--darkColor); 
+      --elementBackgroundColor : var(--lightColorStrong); 
+      
+    }
+    body {
+      background-color: var(--backgroundcolor);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --backgroundcolor :var(--darkColor);
+      --iconColor : var(--lightColor);
+      --textColor : var(--lightColor);
+      --borderColor : var(--lightColor); 
+      --elementBackgroundColor : var(--darkColorSoft); 
+    }
+    body {
+      background-color: var(--backgroundcolor);
+    }
+  }
+
+  body ::-webkit-scrollbar{
+    width: 8px;     
+    height: 8px;    
+  }
+
+  body ::-webkit-scrollbar-thumb {
+    background:var(--mediumColor) ;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+    background: var(--darkColorSoft);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body ::-webkit-scrollbar-thumb:active {
+    background-color: var(--lightColor);
+}
+
+
+body ::-webkit-scrollbar-track {
+  background: var(--elementBackgroundColor);
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+body ::-webkit-scrollbar-track:hover,
+body ::-webkit-scrollbar-track:active {
+background: var(--lightColorStrong);
+}
+  
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import '@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';

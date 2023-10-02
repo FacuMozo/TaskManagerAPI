@@ -1,0 +1,26 @@
+<div class="proyect">
+    <p *ngIf="project == undefined">
+        Loading project...
+        <app-load-bar></app-load-bar>
+    </p>
+    
+    <app-proyect-card [project]="project" *ngIf="project != undefined"  (editOutPut)="editProjectDialog(project)"></app-proyect-card>
+    <app-divider></app-divider>
+    <app-button [text]="'Add epic'" [icon]="'plus'" (buttonEvent)="newEpicDialog()" ></app-button>
+    <ul  *ngFor="let epica of epics; index as i;">
+        <li>
+            <app-generic-card 
+                [epica]="epica" 
+                (editOutPut)="editDialog(epica)"
+                (deleteOutPut)="deleteDialog(epica)"
+            ></app-generic-card>
+        </li>
+    </ul>
+    
+    <p *ngIf="epics.length == 0 && !cantEpicsIsZero && !errorGetEpics">
+        Loading epics...
+        <app-load-bar></app-load-bar>
+    </p>
+    <app-label [text]="'There are no epics in this project'" *ngIf="cantEpicsIsZero"></app-label>
+    <app-label [text]="'Error to get Epics'" *ngIf="errorGetEpics"></app-label>
+</div>

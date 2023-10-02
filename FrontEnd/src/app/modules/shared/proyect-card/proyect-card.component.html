@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header [routerLink]="'/my-projects/'+project._id ">
+        <mat-card-title >
+            {{project.name}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="members-container">
+            <ng-container *ngFor="let member of getMembersOfProject(project.members)">
+                <mat-card-subtitle>
+                    - {{member.getName()}} -
+                </mat-card-subtitle>
+            </ng-container>
+        </div>
+        <p>
+            {{project.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <i class="fa-regular fa-pen-to-square" (click)="editEvent()"></i>
+        <i *ngIf="mostrarDelete" class="fa-regular fa-trash-can" (click)="deleteEvent()"></i>
+    </mat-card-actions>
+</mat-card>

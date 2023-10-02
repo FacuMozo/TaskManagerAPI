@@ -1,0 +1,27 @@
+<div class="container">
+  <p  *ngIf="epic == undefined">
+    Loading epic...
+    <app-load-bar></app-load-bar>
+  </p>
+  <app-generic-card *ngIf="epic != undefined" [type]="'inside'" [epica]="epic" (editOutPut)="editDialog(epic)" ></app-generic-card>
+
+  <app-divider></app-divider>
+  <app-button
+    [text]="'Add Story'"
+    [icon]="'plus'"
+    (buttonEvent)="addStory()"
+  ></app-button>
+
+    <p  *ngIf="stories.length == 0 && !cantStoriesIsZero && !errorGetStories">
+      Loading epic...
+      <app-load-bar></app-load-bar>
+    </p>
+    <ul>
+      <li *ngFor="let story of stories; let i = index">
+          <app-story-card [story]="story" [projectId]="projectId" [epicId]="epicId" (editOutPut)="updateStory(story)" (deleteOutPut)="deleteStory(story)"></app-story-card>
+      </li>
+    </ul>
+    <app-label [text]="'No existen stories'" *ngIf="cantStoriesIsZero"></app-label>
+    <app-label [text]="'Error to get stories'" *ngIf="errorGetStories"></app-label>
+
+</div>

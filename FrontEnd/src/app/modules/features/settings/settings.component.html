@@ -1,0 +1,34 @@
+<div>
+
+    <p  *ngIf="user == undefined && !errorGetUser">
+        Loading content
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</p>
+<app-label [text]="'Error getting user'" *ngIf="errorGetUser"></app-label>
+
+<div *ngIf="user != undefined" class="title">
+    <h3>¡Bienvenido {{user.name.first}} {{user.name.last}}! </h3>
+</div>
+ 
+
+
+<mat-accordion  *ngIf="user != undefined">
+    <mat-expansion-panel class="expansion">
+        <mat-expansion-panel-header >
+            Datos de usuario
+        </mat-expansion-panel-header>
+        <p>Name: {{user.name.first}}</p> 
+        <p>Last name: {{user.name.last}}</p>
+        <p>Username: {{user.username}}</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel class="expansion">
+        <mat-expansion-panel-header>
+            Email
+        </mat-expansion-panel-header>
+        <p> {{user.email}}</p> 
+    </mat-expansion-panel>
+    
+</mat-accordion>
+
+</div>
+

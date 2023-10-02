@@ -1,0 +1,92 @@
+<form [formGroup] = "storyForm" mat-dialog-content (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>{{data.option}}</h1>
+    
+        <mat-form-field color="primary">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="name" required>
+        </mat-form-field>
+
+        
+        <mat-form-field color="primary">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="" required
+              formControlName="description"
+            ></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Points</mat-label>
+            <mat-select matInput formControlName="points" required> 
+                <mat-option [value]="1">1</mat-option>
+                <mat-option [value]="2">2</mat-option>
+                <mat-option [value]="3">3</mat-option>
+                <mat-option [value]="4">4</mat-option>
+                <mat-option [value]="5">5</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-form-field color="primary">
+            <mat-label>Sprint</mat-label>
+            <input type="text" matInput formControlName="sprint">
+        </mat-form-field> -->
+
+        <mat-form-field>
+            <mat-label>Due</mat-label>
+            <input matInput [matDatepicker]="due" formControlName="due" readonly>
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="due"></mat-datepicker-toggle>
+            <mat-datepicker #due></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Start</mat-label>
+            <input matInput [matDatepicker]="started" formControlName="started" readonly>
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="started"></mat-datepicker-toggle>
+            <mat-datepicker #started></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Finish</mat-label>
+            <input matInput [matDatepicker]="finished" formControlName="finished" readonly>
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="finished"></mat-datepicker-toggle>
+            <mat-datepicker #finished></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Assigned to</mat-label>
+            <mat-select multiple required formControlName="assignedTo">
+                <mat-option *ngFor="let user of users" [value]="user._id"> {{user.getName()}}</mat-option>
+                
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select matInput formControlName="status" required>
+                <mat-option value="todo">To do</mat-option>
+                <mat-option value="running">Running </mat-option>
+                <mat-option value="done">Done </mat-option>
+            </mat-select>
+            
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Owner</mat-label>
+            <mat-select  required formControlName="owner" >
+                <mat-option *ngFor="let user of users" [value]="user._id"> {{user.getName()}}</mat-option>
+                
+            </mat-select>
+        </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button cdkFocusInitial type="submit">Submit</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,19 @@
+build-app:
+  stage: build
+  image: trion/ng-cli-karma
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+  script:
+    - ./ci/jobs/build/build.sh
+    - (echo "el built-commit es $(git rev-parse HEAD)" > git-sha)
+    - cat git-sha
+  artifacts:
+    name: "$CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG-builds"
+    when: always
+    paths:
+      - dist/
+    expire_in: 1 hour

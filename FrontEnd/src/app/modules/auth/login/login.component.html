@@ -1,0 +1,31 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="displayContent">
+      <img src="../../../../assets/images/AgileFlow-logo.svg" alt="">
+      <app-divider></app-divider>
+      <h2>LogIn</h2>
+  
+      <mat-form-field>
+        <mat-label>Username:</mat-label>
+        <input #user minlength="4" matInput placeholder="username" formControlName="username" required />
+        <mat-hint align="end">{{user.value.length}}/4</mat-hint>
+        <mat-hint *ngIf="loginForm.value.Password != ''">Enter your username</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input #password minlength="4" matInput placeholder="Password" formControlName="password"  [type]="hide ? 'password' : 'text'" required />
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-hint align="end">{{password.value.length}}/4</mat-hint>
+        <mat-hint *ngIf="loginForm.value.Password != ''">Enter your password</mat-hint>
+      </mat-form-field>
+
+      
+      <span class="alert">
+        <mat-label  *ngIf="wrongLogin"> {{errorMessage}} </mat-label>
+      </span>
+  
+      <div class="loginForm-buttons">
+        <button mat-button cdkFocusInitial type="submit">Log In</button>  
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,49 @@
+<mat-sidenav-container class="appContainer">
+  <mat-sidenav #sidenav mode="side" [mode]="'over'" >
+          <div class="flex-container">
+
+            <div class="logo">
+              <!-- <img src="../../../../assets/images/AgileFlow-logo-2.png" alt=""> -->
+              <img src="../../../../assets/images/AgileFlow-logo.svg" alt="">
+            </div>
+
+            <div class=" navigation">
+              <div class="nav-button" [routerLink]="[ '/']" (click)="sidenav.toggle()">
+                <!-- <app-label (click)="sidenav.toggle()" [text]="'HOME'" [pointerCursor]="true"  ></app-label> -->
+                <p>Home</p>
+              </div>
+              <div class="nav-button" [routerLink]="[ '/my-projects']" (click)="sidenav.toggle()">
+                <!-- <app-label (click)="sidenav.toggle()" [text]="'My Proyects'"  [pointerCursor]="true" ></app-label> -->
+                <p>My Projects</p>
+              </div>
+              <div class="nav-button" [routerLink]="[ '/my-stories']" (click)="sidenav.toggle()">
+                <!-- <app-label (click)="sidenav.toggle()" [text]="'My Stories'"  [pointerCursor]="true" ></app-label> -->
+                <p>My stories</p>
+              </div>
+
+            </div>
+
+            <div class="nav-button" (click)="sidenav.toggle()" [routerLink]="[ '/settings']">
+              <!-- <app-label (click)="sidenav.toggle()" [text]="'Settings'" [routerLink]="[ '/settings']" [pointerCursor]="true" ></app-label> -->
+              <p>Settings</p>
+            </div>
+          </div>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+
+    
+    <app-header (toggle)="sidenav.toggle()"></app-header>
+
+
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+
+
+    <app-footer ></app-footer>
+    
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

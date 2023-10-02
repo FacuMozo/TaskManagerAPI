@@ -1,0 +1,16 @@
+<div class="proyect">
+    <app-button [text]="'Add project'" [icon]="'plus'" (buttonEvent)="newProjectDialog()" ></app-button>
+    <app-divider></app-divider>
+    <ul>
+        <li *ngFor="let project of projects">
+            <app-proyect-card [project]="project"  [mostrarDelete]="true" (editOutPut)="editProjectDialog(project)" (deleteOutPut)="deleteProject(project)" ></app-proyect-card>
+        </li>
+    </ul>
+
+    <p  *ngIf="projects.length == 0 && !cantProjectsIsZero && !errorGetProjects">
+        Loading projects...
+        <app-load-bar></app-load-bar>
+    </p>
+    <app-label [text]="'No existen proyectos'" *ngIf="cantProjectsIsZero"></app-label>
+    <app-label [text]="'Error to get projects'" *ngIf="errorGetProjects"></app-label>
+</div>

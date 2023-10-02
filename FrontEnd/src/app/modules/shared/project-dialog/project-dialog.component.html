@@ -1,0 +1,27 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title> {{data.option}} proyecto</h1>
+  <div class="formContent" mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nombre del proyecto </mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Miembros</mat-label>
+      <mat-select multiple required formControlName="members">
+        <mat-option *ngFor="let user of users" [value]="user._id">{{user.getName()}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descripcion</mat-label>
+      <input matInput formControlName="description" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Icon</mat-label>
+      <input matInput formControlName="icon" required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" cdkFocusInitial >{{data.option}}</button>
+    </div>
+</form>

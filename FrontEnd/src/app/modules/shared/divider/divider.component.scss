@@ -1,0 +1,13 @@
+.divider{
+    border-radius: 0.25rem;
+    margin: 0.25rem 0;
+    display: flex;
+    width: 100%;
+    border: 0.125rem solid;
+    @media (prefers-color-scheme: light) {
+        border: 0.125rem solid var(--darkColorSoft);
+    }
+    @media (prefers-color-scheme: dark) {
+        border: 0.125rem solid var(--lightColor);
+    }
+}

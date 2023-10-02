@@ -1,0 +1,25 @@
+<nav>
+    <mat-toolbar color="primary">
+        <button *ngIf="firstLevelRoute; else returnButton" mat-icon-button class="example-icon" (click)="toggleNavBar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <ng-template #returnButton>
+          <button #returnButton mat-icon-button class="example-icon" (click)="previousLevel()">
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+        </ng-template>
+        
+
+        <span>{{rutaActual}}</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button 
+        class="example-icon favorite-icon"
+        [routerLink]="['/settings']">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" 
+        (click)="logout()" [routerLink]="['/login']">
+          <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar>
+</nav>

@@ -1,0 +1,49 @@
+<form [formGroup] = "taskForm" mat-dialog-content (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>Add new task</h1>
+    
+        <mat-form-field color="primary">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="name" required>
+        </mat-form-field>
+
+        
+        <mat-form-field color="primary" hintLabel="Minimum 10 characters">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder=""
+              formControlName="description"
+              minlength="10"
+              #desc
+            ></textarea>
+            <mat-hint align="end">{{desc.value.length}}/10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Due</mat-label>
+            <input matInput [matDatepicker]="due" formControlName="due" readonly  >
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="due"></mat-datepicker-toggle>
+            <mat-datepicker #due></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Done</mat-label>
+          <mat-select formControlName="done">
+              <mat-option [value]="true">Done</mat-option>
+              <mat-option [value]="false">Not done</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button cdkFocusInitial type="submit">Submit</button>
+    </mat-dialog-actions>
+
+    <mat-label class="alert" *ngIf="invalid">Invalid form</mat-label>
+    
+</form>

@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-header  *ngIf="type != 'mystories'" >
+        <div class="title" [routerLink]="'/my-projects/'+projectId+'/'+epicId+'/'+story._id">
+            <mat-card-title >{{ story.name}}</mat-card-title>
+        </div>
+                <p class="ownerText">
+                    Owner: {{getOwner(story.owner)}}
+                </p>
+        </mat-card-header>
+        <mat-card-header *ngIf="type == 'mystories'" >
+            <div class="title" [routerLink]="'/my-stories/'+story._id">
+                <mat-card-title >{{ story.name}}</mat-card-title>
+            </div>
+            <p class="ownerText">
+                Owner: {{getOwner(story.owner)}}
+            </p>
+        </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <ul>
+            Asigned to:
+            <li *ngFor="let us of getUsersOfStory(story.assignedTo)">
+               - {{us.name.first}} {{us.name.last}} - 
+            </li>
+        </ul>
+        <p>
+            Description: {{ story.description }}
+        </p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <div class="footer">
+        <div class="dates">
+            <p>Created at: {{ story.created | date : "shortDate" }}</p>
+            <p>Due: {{ story.due | date : "shortDate" }}</p>
+            <p>Status: {{ story.status }}</p>
+        </div>
+        <mat-card-actions>
+
+            <i class="fa-regular fa-pen-to-square" (click)="updateStory()"></i>
+            <i *ngIf="type!='inside' && type != 'mystories'" class="fa-regular fa-trash-can" (click)="deleteStory()"></i>
+
+        </mat-card-actions>
+    </div>
+</mat-card>

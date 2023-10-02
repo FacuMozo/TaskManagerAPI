@@ -1,0 +1,66 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+$custom-palette: (
+ 50: #e1e6e6,
+ 100: #b8c8c8,
+ 200: #7b9b9b,
+ 300: #3d6f6f,
+ 400: #004242,
+ 500: #004242,
+ 700: #004242,
+ A100:#B8FFC8,
+ 
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500: white,
+   700: white,
+   // ... continues to 900
+ )
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$FrontendBootcamp-primary: mat-palette($custom-palette,400);
+$FrontendBootcamp-primary-dark: mat-palette($custom-palette,50);
+$FrontendBootcamp-accent: mat-palette($custom-palette, A100);
+$FrontendBootcamp-accent-dark: mat-palette($custom-palette,200);
+
+// The warn palette is optional (defaults to red).
+$FrontendBootcamp-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$FrontendBootcamp-theme: mat-light-theme((
+  color: (
+    primary: $FrontendBootcamp-primary,
+    accent: $FrontendBootcamp-accent,
+    warn: $FrontendBootcamp-warn,
+  )
+));
+$FrontendBootcamp-theme-dark: mat-dark-theme((
+  color: (
+    primary: $FrontendBootcamp-primary-dark,
+    accent: $FrontendBootcamp-accent-dark,
+    warn: $FrontendBootcamp-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($FrontendBootcamp-theme);
+@include angular-material-theme($FrontendBootcamp-theme-dark);
+

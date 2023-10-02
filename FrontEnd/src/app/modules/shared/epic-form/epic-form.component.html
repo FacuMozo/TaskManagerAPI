@@ -1,0 +1,26 @@
+<form [formGroup]="epicForm" (ngSubmit)="onSubmit()">
+  <div class="displayContent" mat-dialog-content>
+    <p>{{data.option}} epic to project</p>
+
+    <mat-form-field>
+      <mat-label>Epic name:</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Epic description:</mat-label>
+      <textarea matInput formControlName="description" required> </textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>icono</mat-label>
+      <input matInput formControlName="icon" required />
+    </mat-form-field>
+
+    <div class="dialog-actions" mat-dialog-actions>
+      <button mat-button mat-dialog-close >Cancel</button>
+      <button mat-button cdkFocusInitial type="submit">Submit</button>
+
+    </div>
+  </div>
+</form>

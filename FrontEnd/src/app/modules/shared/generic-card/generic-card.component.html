@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header [routerLink]="'/my-projects/'+projectId+'/'+epica._id">
+        <mat-card-title >{{epica.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <p>
+            Descripcion: 
+            {{epica.description}}
+        </p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+
+    <mat-card-actions align="end">
+        <i class="fa-regular fa-pen-to-square" (click)="editEvent()"></i>
+        <i *ngIf="type!='inside'" class="fa-regular fa-trash-can" (click)="deleteEvent()"></i>
+    </mat-card-actions>
+</mat-card>

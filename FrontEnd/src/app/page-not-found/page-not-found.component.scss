@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+.container{
+  display: block;
+  text-align: center;
+  padding: 5%;
+}
+.four1{
+animation: swing ease-in-out 1.5s infinite alternate;
+    display: inline-block;
+}
+.zero{
+  animation: swing2 ease-in-out 1.5s infinite alternate;
+  display: inline-block;
+}
+.four2{
+animation: swing3 ease-in-out 1.5s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+@keyframes swing2 {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
+}
+@keyframes swing3 {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(8deg); }
+}
+h1{
+  font-family: 'Fjalla One';
+  text-align: center; 
+  color: var(--textColor);
+  
+}
+
+.btn-home{
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    border-radius: 4px;
+    border: 2px solid;
+    transition:0.2s;
+}
+
+.btn-home:hover{
+    background-color: var(--elementBackgroundColor) ;
+}
+

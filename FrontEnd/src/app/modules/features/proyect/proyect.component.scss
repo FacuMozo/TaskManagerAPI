@@ -1,0 +1,28 @@
+.proyect{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin: 1rem;
+    width: 42rem;
+    color: var(--textColor);
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 750px) {
+        width: 90dvw;
+    }
+    
+    app-divider,app-generic-card{
+        width: 100%;
+    }
+    ul{
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+    app-proyect-card{
+        width: 100%;
+    }
+}

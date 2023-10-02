@@ -1,0 +1,22 @@
+<div class="container">
+    <p  *ngIf="stories == undefined && !errorGetStories">
+        Loading stories
+        <app-load-bar></app-load-bar>
+    </p>
+
+    
+    
+    
+    
+    <ul>
+      <li *ngFor="let story of stories; let i = index">
+        
+        <app-story-card *ngIf="stories != undefined"[story]="story" [type]="'mystories'"  (editOutPut)="updateStory(story)" (deleteOutPut)="deleteStory(story,'Delete story')"></app-story-card>
+
+      </li>
+    </ul>
+    <app-label [text]="'There are no stories to work with'" *ngIf="cantStoriesIsZero"></app-label>
+    <app-label [text]="'Error getting stories'" *ngIf="errorGetStories"></app-label>
+
+    
+  </div>

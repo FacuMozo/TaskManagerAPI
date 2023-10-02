@@ -1,0 +1,37 @@
+<div class="task">
+
+  <p  *ngIf="story == undefined && !errorGetStory">
+    Loading story...
+    <app-load-bar></app-load-bar>
+    <app-label [text]="'Error to getting story'" *ngIf="errorGetStory"></app-label>
+
+</p>
+
+  <app-story-card *ngIf="projectId == undefined && epicId == undefined" [story]="story" (editOutPut)="updateStory()" [type]="'mystories'"></app-story-card>
+
+  <app-story-card *ngIf="story != undefined && projectId != undefined && epicId != undefined" [story]="story" [projectId]="projectId" [epicId]="epicId" (editOutPut)="updateStory()" [type]="'inside'"></app-story-card>
+
+  <app-divider></app-divider>
+  <app-button [text]="'Add Task'" [icon]="'plus'" (buttonEvent)="addTask()"></app-button>
+
+  <p  *ngIf=" tasks.length == 0 && !errorGetTasks && !errorNoTasks">
+    Loading tasks...
+    <app-load-bar></app-load-bar>
+  </p>
+
+    <ul *ngFor="let task of tasks" >
+      
+      <li *ngIf="task != undefined">
+        <app-task-card
+          [task]="task"
+          [projectId]="projectId"
+          [epicId]="epicId"
+          [storyId]="storyId"
+          (editOutPut)="updateTask(task)"
+          (deleteOutPut)="deleteTask(task, 'Delete task')"
+         ></app-task-card>
+      </li>
+    </ul>
+    <app-label [text]="'There are no tasks in this story'" *ngIf="errorNoTasks"></app-label>
+    <app-label [text]="'Error getting tasks'" *ngIf="errorGetTasks"></app-label>
+</div>

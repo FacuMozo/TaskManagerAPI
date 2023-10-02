@@ -1,0 +1,52 @@
+.task{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin: 1rem;
+    width: 42rem;
+    color: var(--textColor);
+
+    .progress-bar{
+        color: var(--textColor);
+        background-color: var(--mediumColor)
+    }
+
+    @media (max-width: 750px) {
+        width: 90dvw;
+    }
+    
+    align-items: center;
+    justify-content: center;
+    app-divider,app-story-card{
+        width: 100%;
+    }
+    ul{
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+    mat-card{
+        margin: 0;
+    }
+
+    .story-card{
+        background-color: var(--darkColorSoft);
+    }
+
+    mat-card-header{
+        display: flex;
+        justify-content: space-evenly;
+        
+        p{
+            color: var(--mediumColor);
+        }
+    }
+
+    .card-footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

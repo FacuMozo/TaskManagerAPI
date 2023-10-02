@@ -1,0 +1,72 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--mediumColor);
+    width: 80%;
+    border-radius: 0.5rem;
+
+   
+
+    .displayContent{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        
+        .loginForm-buttons{
+            display: flex;
+            flex-direction: row;
+            
+            align-items: center;
+            justify-content: center;
+            button{
+                width: 100%;
+            }
+        }
+        img{
+            height: 10rem;
+        }
+        
+        h2{
+            font-size: 1.5rem;
+            align-self: center;
+        }
+        app-divider{
+            width: 100%;
+        }
+        button{
+            background-color: var(--lightColorStrong);
+            font-weight: bold;
+
+        }
+        @media (prefers-color-scheme: light) {
+            h2, mat-hint, button{
+                color: var(--darkColor);
+            } 
+        }
+        @media (prefers-color-scheme: dark) {
+            h2, mat-hint{
+                color: white;
+            }
+            button{
+                color: var(--darkColorSoft);
+                
+            }
+        }
+    }
+
+}
+
+.alert{
+    background-color: var(--textColor);
+    display: flex;
+    justify-content: center;
+    color: red;
+    padding: 0;
+    margin: 0;
+}
+

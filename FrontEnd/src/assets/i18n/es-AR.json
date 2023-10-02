@@ -1,0 +1,9 @@
+{
+	"app": {
+		"TITLE": "Entrenamiento de Front-end",
+		"WELCOME": {
+			"HEADER": "¡Bienvenido al entrenamiento de front-end {{year}}!",
+			"CONTENT": "Angular es un framework para diseño de aplicaciones y una plataforma de desarrollo para crear sofisticadas y eficientes single-page apps."
+		}
+	}
+}

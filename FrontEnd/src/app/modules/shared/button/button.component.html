@@ -1,0 +1,4 @@
+<button  type="button" (click)="buttonAction()" >
+    <i *ngIf="displayIcon" [class]="'fa fa-'+icon"></i>
+    <div *ngIf="displayText" class="text">{{this.text}}</div>
+</button>
